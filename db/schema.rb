@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 20190312152736) do
     t.string "name"
     t.integer "length"
     t.string "image"
-    t.bigint "comedians_id"
-    t.index ["comedians_id"], name: "index_specials_on_comedians_id"
+    t.bigint "comedian_id"
+    t.index ["comedian_id"], name: "index_specials_on_comedian_id"
   end
 
 end

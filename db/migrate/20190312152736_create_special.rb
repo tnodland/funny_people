@@ -4,7 +4,7 @@ class CreateSpecial < ActiveRecord::Migration[5.1]
       t.string :name
       t.integer :length
       t.string :image
-      t.references :comedians
+      t.references :comedian
     end
   end
 end
