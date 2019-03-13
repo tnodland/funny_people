@@ -2,8 +2,17 @@
 
 <% @comedians.each do |comedian| %>
 <section id="comedian-<%= comedian.id %>">
-<p> Comedian: <%= comedian.name %> </p>
-<p> Age: <%= comedian.age %> </p>
-<p> City: <%= comedian.city %> </p>
+  <p> Comedian: <%= comedian.name %> </p>
+  <p> Age: <%= comedian.age %> </p>
+  <p> City: <%= comedian.city %> </p>
+
+    <section id="specials">
+      <h2>Specials:</h2>
+      <% comedian.specials.each do |special| %>
+      <p>Name: <%= special.name %></p>
+      <p>Length: <%= special.length %></p>
+      <img src="<%= special.image %>" alt="special image">
+      <% end %>
+    </section>
 </section>
 <% end %>

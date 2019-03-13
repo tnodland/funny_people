@@ -7,6 +7,7 @@ RSpec.describe "comedians index page" do
       @com2 = create(:comedian)
       @dcom1 = create(:deceased_comedian)
       @sp1 = create(:special, comedian: @com1)
+      @sp2 = create(:special, comedian: @com1)
     end
 
     it "should see all comedians" do
@@ -29,7 +30,14 @@ RSpec.describe "comedians index page" do
 
     it "should see all specials for each comedian" do
       visit comedians_path
-
+      within "#comedian-#{@com1.id}" do
+        within "#specials" do
+          expect(page).to have_content(@sp1.name)
+          expect(page).to have_content(@sp1.length)
+          # expect(page).to have_css("img[src*=#{@sp1.image}]")
+          expect(page).to have_content(@sp2.name)
+        end
+      end
     end
   end
 end
