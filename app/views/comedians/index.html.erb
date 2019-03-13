@@ -3,7 +3,11 @@
 <% @comedians.each do |comedian| %>
 <section id="comedian-<%= comedian.id %>">
   <p> Comedian: <%= comedian.name %> </p>
-  <p> Age: <%= comedian.age %> </p>
+  <% if comedian.deceased? %>
+    <p>Age: <%= comedian.age %> (deceased)</p>
+  <% else %>
+    <p> Age: <%= comedian.age %> </p>
+  <% end %>
   <p> City: <%= comedian.city %> </p>
 
     <section id="specials">

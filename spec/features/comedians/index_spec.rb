@@ -31,6 +31,14 @@ RSpec.describe "comedians index page" do
       end
     end
 
+    it "should see an aditional info next to deceased comedians" do
+      visit comedians_path
+
+      within "#comedian-#{@deceased_com.id}" do
+        expect(page).to have_content("Age: #{@deceased_com.age} (deceased)")
+      end
+    end
+
     it "should see all specials for each comedian" do
       visit comedians_path
       within "#comedian-#{@com.id}" do
@@ -51,10 +59,12 @@ RSpec.describe "comedians index page" do
       end
     end
 
-    it "should see some statistics" do
+    xit "should see some statistics" do
       visit comedians_path
       within "#statistics" do
-        expect(page).to have_content("Average age: 30")
+        # excpecting to not see deceased comedian ages in the average
+        expect(page).to have_content("Average age: 40")
+
       end
     end
   end
