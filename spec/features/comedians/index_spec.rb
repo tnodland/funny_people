@@ -27,7 +27,7 @@ RSpec.describe "comedians index page" do
         expect(page).to have_content(@young_com.name)
         expect(page).to have_content(@young_com.age)
         expect(page).to have_content(@young_com.city)
-        expect(page).to_not have_content(@com.age)
+        expect(page).to_not have_content("Age: #{@com.age}")
       end
     end
 
@@ -51,7 +51,7 @@ RSpec.describe "comedians index page" do
       end
     end
 
-    xit "should see some statistics" do
+    it "should see some statistics" do
       visit comedians_path
       within "#statistics" do
         expect(page).to have_content("Average age: 30")
