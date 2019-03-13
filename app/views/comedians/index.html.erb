@@ -1,0 +1,9 @@
+<h1>Welcome to Funny People</h1>
+
+<% @comedians.each do |comedian| %>
+<section id="comedian-<%= comedian.id %>">
+<p> Comedian: <%= comedian.name %> </p>
+<p> Age: <%= comedian.age %> </p>
+<p> City: <%= comedian.city %> </p>
+</section>
+<% end %>

@@ -4,8 +4,8 @@ class CreateComedians < ActiveRecord::Migration[5.1]
       t.string :name
       t.string :city
       t.string :image
-      t.boolean :deceased, deafault: true
-      t.integer :age 
+      t.boolean :deceased, default: false
+      t.integer :age
     end
   end
 end

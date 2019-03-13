@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20190312152736) do
     t.string "name"
     t.string "city"
     t.string "image"
-    t.boolean "deceased"
+    t.boolean "deceased", default: false
     t.integer "age"
   end
 
