@@ -6,4 +6,8 @@ class Comedian < ApplicationRecord
   def self.average_age
     Comedian.where(deceased: false).average(:age)
   end
+
+  def self.unique_cities
+    Comedian.distinct.pluck(:city)
+  end
 end
