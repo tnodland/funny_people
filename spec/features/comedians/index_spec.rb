@@ -63,9 +63,9 @@ RSpec.describe "comedians index page" do
       visit comedians_path
       within "#statistics" do
         # excpecting to not see deceased comedian ages in the average
-        expect(page).to have_content("Average age: 60")
-        expect(page).to have_content("Average Special Run Time: 60 minutes")
-        expect(page).to have_content("Cities: city1, city2, city3")
+        expect(page).to have_content("Average Age: 60")
+        expect(page).to have_content("Average Special Run Time: 60.0 minutes")
+        expect(page).to have_content("Cities: city3, city1, city2")
       end
     end
   end
