@@ -5,12 +5,12 @@ RSpec.describe "comedians index page" do
     before :each do
       @com = create(:comedian)
       @young_com = create(:young_comedian)
-      @old_com = create(:old_comedian)
       @deceased_com = create(:deceased_comedian)
+      @old_com = create(:old_comedian, city: "city1")
 
       @sp1 = create(:special, comedian: @com)
-      @sp2 = create(:special, comedian: @com)
-      @sp3 = create(:special, comedian: @young_com)
+      @sp2 = create(:short_special, comedian: @com)
+      @sp3 = create(:long_special, comedian: @young_com)
     end
 
     it "should see all comedians" do
@@ -59,12 +59,13 @@ RSpec.describe "comedians index page" do
       end
     end
 
-    xit "should see some statistics" do
+    it "should see some statistics" do
       visit comedians_path
       within "#statistics" do
         # excpecting to not see deceased comedian ages in the average
         expect(page).to have_content("Average age: 40")
-
+        expect(page).to have_content("Average Special Run Time: 60 minutes")
+        expect(page).to have_content("Cities: city1, city2, city3")
       end
     end
   end
