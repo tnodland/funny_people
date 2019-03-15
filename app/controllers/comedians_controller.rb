@@ -1,8 +1,14 @@
 class ComediansController < ApplicationController
   def index
-    @comedians = Comedian.all
+    @comedians = Comedian.where(query_params)
     @average_age = Comedian.average_age
     @average_time = Special.average_time
     @cities = Comedian.unique_cities
+  end
+
+  private
+
+  def query_params
+    params.permit(:age)
   end
 end
