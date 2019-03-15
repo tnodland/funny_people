@@ -1,8 +1,8 @@
 <h1>Welcome to Funny People</h1>
 
 <section id="statistics">
-  <p>Average Age: <%= Comedian.average_age.to_i %></p>
-  <p>Average Special Run Time: <%= Special.average_time %> minutes</p>
+  <p>Average Age: <%= @average_age.to_i %></p>
+  <p>Average Special Run Time: <%= @average_time %> minutes</p>
   <p>Cities: <% @cities.each do |city| %><%= "#{city}, " %><% end %></p>
 </section>
 

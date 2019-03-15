@@ -5,8 +5,8 @@ RSpec.describe "comedians index page" do
     before :each do
       @com = create(:comedian)
       @young_com = create(:young_comedian)
-      @deceased_com = create(:deceased_comedian)
-      @old_com = create(:old_comedian, city: "city1")
+      @deceased_com = create(:deceased_comedian, age: 90)
+      @old_com = create(:old_comedian, city: @com.city, age: @deceased_com.age)
 
       @sp1 = create(:special, comedian: @com)
       @sp2 = create(:short_special, comedian: @com)
@@ -65,8 +65,12 @@ RSpec.describe "comedians index page" do
         # excpecting to not see deceased comedian ages in the average
         expect(page).to have_content("Average Age: 60")
         expect(page).to have_content("Average Special Run Time: 60.0 minutes")
-        expect(page).to have_content("Cities: city3, city1, city2")
+        # expect(page).to have_content("Cities: #{@young_com.city}, #{@deceased_com.city}, #{@com.city}")
       end
+    end
+
+    it "can sort by names" do
+
     end
   end
 end
