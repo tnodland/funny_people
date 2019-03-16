@@ -31,6 +31,17 @@ RSpec.describe "comedians index page" do
       end
     end
 
+    it "comedian names should be links to thier show page" do
+      visit comedians_path
+
+      within "#comedian-#{@com.id}" do
+        expect(page).to have_link(@com.name.titleize)
+        click_link(@com.name.titleize)
+      end
+
+      expect(current_path).to eq(comedian_path(@com))
+    end
+
     it "should see an aditional info next to deceased comedians" do
       visit comedians_path
 
