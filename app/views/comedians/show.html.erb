@@ -3,10 +3,13 @@
 <h2>City of Origin: <%= @comedian.city %></h2>
 <h2>Age: <%= @comedian.age %></h2>
 
-<section id="comedian description">
-<p><%= @comedian.description %></p>
+<section id="comedian-description">
+  <p><%= @comedian.description %></p>
 </section>
 
-<section id="joke wrapper">
-  <%= button_to "Tell me a joke", comedian_joke_path(@comedian) %>
+<section id="joke-wrapper">
+  <%= link_to "Tell me a joke", comedian_joke_path(@comedian) %>
+  <% unless @joke.nil? %>
+    <%= @joke.joke %>
+  <% end %>
 </section>

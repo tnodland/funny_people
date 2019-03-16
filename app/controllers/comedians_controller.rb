@@ -12,6 +12,9 @@ class ComediansController < ApplicationController
 
   def show
     @comedian = Comedian.find(params[:id])
+    if params[:joke]
+      @joke = Joke.find(params[:joke])
+    end
   end
 
   def create
@@ -21,6 +24,12 @@ class ComediansController < ApplicationController
     else
       redirect_to new_comedian_path
     end
+  end
+
+  def joke
+    @comedian = Comedian.find(params[:id])
+    @joke = @comedian.jokes.sample
+    redirect_to comedian_show_joke_path(@comedian, @joke)
   end
 
   private

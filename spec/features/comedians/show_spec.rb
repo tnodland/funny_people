@@ -18,10 +18,19 @@ RSpec.describe "comedians show page" do
       joke = create(:joke, comedian: comedian)
 
       visit comedian_path(comedian)
-      expect(page).to_not have_content(joke.joke)
-      expect(page).to have_button("Tell me a joke")
 
-      click_button("Tell me a joke")
+      within "#joke-wrapper" do
+        expect(page).to_not have_content(joke.joke)
+        expect(page).to have_link("Tell me a joke")
+        click_link("Tell me a joke")
+      end
+
+
+      expect(current_path).to eq(comedian_show_joke_path(comedian, joke))
+
+      within "#joke-wrapper" do
+        expect(page).to have_content(joke.joke)
+      end
     end
   end
 end
