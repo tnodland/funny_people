@@ -3,6 +3,7 @@ FactoryBot.define do
     sequence(:name) {|n| "comedian#{n}"}
     sequence(:city) {|n| "city#{n}"}
     age { 60 }
+    description { "a comedian" }
   end
 
   factory :deceased_comedian, parent: :comedian do

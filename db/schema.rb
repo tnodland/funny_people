@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190312152736) do
+ActiveRecord::Schema.define(version: 20190316181807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,9 +18,10 @@ ActiveRecord::Schema.define(version: 20190312152736) do
   create_table "comedians", force: :cascade do |t|
     t.string "name"
     t.string "city"
-    t.string "image"
     t.boolean "deceased", default: false
     t.integer "age"
+    t.string "image", default: "https://upload.wikimedia.org/wikipedia/commons/7/72/Default-welcomer.png"
+    t.text "description"
   end
 
   create_table "specials", force: :cascade do |t|

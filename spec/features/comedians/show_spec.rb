@@ -10,6 +10,7 @@ RSpec.describe "comedians show page" do
       expect(page).to have_content(comedian.name)
       expect(page).to have_content(comedian.city)
       expect(page).to have_content(comedian.age)
+      expect(page).to have_content(comedian.description)
     end
   end
 end
