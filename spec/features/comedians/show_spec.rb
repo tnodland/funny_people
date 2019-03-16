@@ -11,6 +11,18 @@ RSpec.describe "comedians show page" do
       expect(page).to have_content(comedian.city)
       expect(page).to have_content(comedian.age)
       expect(page).to have_content(comedian.description)
+      expect(page).to have_content(comedian.image)
+    end
+
+    it "can be told a joke" do
+      comedian = create(:comedian)
+      joke = create(:joke, comedian: comedian)
+
+      visit comedian_path(comedian)
+
+      expect(page).to have_button("Tell me a joke")
+
+      
     end
   end
 end

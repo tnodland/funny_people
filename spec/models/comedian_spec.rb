@@ -9,6 +9,7 @@ RSpec.describe Comedian do
 
   describe "relationships" do
     it {should have_many :specials}
+    it {should have_many :jokes}
   end
 
   describe  "class methods" do
