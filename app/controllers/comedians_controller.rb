@@ -10,9 +10,22 @@ class ComediansController < ApplicationController
     @comedian = Comedian.new
   end
 
+def show
+
+end
+
+  def create
+    comedian = Comedian.create(comedian_params)
+    redirect_to(comedian_path(comedian))
+  end
+
   private
 
   def query_params
     params.permit(:age)
+  end
+
+  def comedian_params
+    params.require(:comedian).permit(:name, :city, :age)
   end
 end

@@ -9,5 +9,26 @@ RSpec.describe "new comedian page" do
       expect(page).to have_field("City")
       expect(page).to have_field("Age")
     end
+
+    it "can add a new comedian" do
+      visit new_comedian_path
+
+      fill_in "Name", with: "Trevor"
+      fill_in "City", with: "Denver"
+      fill_in "Age", with: 24
+      
+      click_on "Create Comedian"
+
+      new_comedian = Comedian.last
+      expect(current_path).to eq(comedian_path(new_comedian))
+
+      visit comedians_path
+
+      within "#comedian-#{new_comedian.id}" do
+        expect(page).to have_content(new_comedian.name)
+        expect(page).to have_content(new_comedian.city)
+        expect(page).to have_content(new_comedian.age)
+      end
+    end
   end
 end
