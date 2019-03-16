@@ -6,6 +6,10 @@ class ComediansController < ApplicationController
     @cities = Comedian.unique_cities
   end
 
+  def new
+    @comedian = Comedian.new
+  end
+
   private
 
   def query_params
