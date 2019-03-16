@@ -16,7 +16,7 @@ RSpec.describe "new comedian page" do
       fill_in "Name", with: "Trevor"
       fill_in "City", with: "Denver"
       fill_in "Age", with: 24
-      
+
       click_on "Create Comedian"
 
       new_comedian = Comedian.last
@@ -29,6 +29,19 @@ RSpec.describe "new comedian page" do
         expect(page).to have_content(new_comedian.city)
         expect(page).to have_content(new_comedian.age)
       end
+    end
+
+    it "can't add a comedian with missing info" do
+      create(:comedian)
+      visit new_comedian_path
+
+      fill_in "City", with: "Denver"
+      fill_in "Age", with: 24
+
+      click_on "Create Comedian"
+
+      expect(current_path).to eq(new_comedian_path)
+      expect(Comedian.last.city).to_not eq("Denver")
     end
   end
 end

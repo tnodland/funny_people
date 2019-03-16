@@ -10,13 +10,17 @@ class ComediansController < ApplicationController
     @comedian = Comedian.new
   end
 
-def show
+  def show
 
-end
+  end
 
   def create
     comedian = Comedian.create(comedian_params)
-    redirect_to(comedian_path(comedian))
+    if comedian.save
+      redirect_to(comedian_path(comedian))
+    else
+      redirect_to new_comedian_path
+    end
   end
 
   private
