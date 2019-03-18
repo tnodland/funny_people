@@ -12,6 +12,10 @@ john = Comedian.create(name: "john pinnette", age: 50, city: "pittsburgh", descr
 mitch = Comedian.create(name: "mitch hedberg", age: 37, city: "livingston", description: "Known for his incredible one liners, Mitch Headberg's style of deadpan still feels unique to this day.", deceased: true, image: "https://cdn1.thr.com/sites/default/files/imagecache/landscape_928x523/2018/06/gettyimages-74714565-h_2018.jpg")
   mitch.specials.create(name: "Comedy Central Presents: Mitch Hedburg", length: 30, image: "https://images-na.ssl-images-amazon.com/images/I/810e7i2sNjL._SY445_.jpg")
 
+  mitch.jokes.create(joke: "When I was a boy, I would lay in my twin sized bed and wonder where my brother was.")
+  mitch.jokes.create(joke: "I wanna hang a map of the world in my house. Then I'm gonna put pins into all the locations that I've traveled to. But first, I'm gonna have to travel to the top two corners of the map, so it won't fall down.")
+  mitch.jokes.create(joke: "I like rice, rice is great when you're hungry and you want 2,000 of something.")
+
 jim = Comedian.create(name: "jim gaffigan", age: 52 , city: "elgin", description: "Jim Gaffigan continues to prove to the world that clean comedy can still entertain modern audiences.", image: "https://peopledotcom.files.wordpress.com/2018/06/jim-gaffigan1.jpg")
   jim.specials.create(name: "Cinco", length: 73, image: "https://m.media-amazon.com/images/M/MV5BYzM5N2YyODQtZTkyMC00ZGVhLWJmZmYtZTI3ZGM2ODAzMzA1L2ltYWdlXkEyXkFqcGdeQXVyMzcwMjcwNQ@@._V1_UX182_CR0,0,182,268_AL_.jpg")
   jim.specials.create(name: "Beyond the Pale", length: 72, image: "https://m.media-amazon.com/images/M/MV5BMTk3NjU2ODY5NF5BMl5BanBnXkFtZTgwNTEyODkwMzE@._V1_UY268_CR4,0,182,268_AL_.jpg")
