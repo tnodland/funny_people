@@ -1,0 +1,35 @@
+h1  {margin-top: 50px;
+    font-family: "Georgia", serif;
+}
+
+body {background-color: #DBDBDB;
+      margin: 0;
+      padding: 0;
+      font-family: "Georgia", serif;
+}
+
+#nav-bar {background-color: #85C7F2;
+          width: 100%;
+          position: fixed;
+          margin: 0;
+          padding: 0;
+          top: 0;
+}
+
+#links {display: inline-flex;
+        background-color: #8D8D8D;
+        margin: 7px;
+        color: #052F5F;
+        text-decoration: none;
+}
+
+#statistics {background-color: #7C7C7C;
+
+}
+
+.comedians {background-color: #7C7C7C;
+            display: flex;
+            /* align-content: center; */
+            margin-top: 10px;
+
+}

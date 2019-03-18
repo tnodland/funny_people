@@ -1,0 +1,29 @@
+<h1>Welcome to Funny People</h1>
+
+<section id="statistics">
+  <p>Average Age: <%= @average_age.to_i %></p>
+  <p>Average Special Run Time: <%= @average_time.round %> minutes</p>
+  <p>Cities: <% @cities.each do |city| %><%= "#{city.titleize}, " %><% end %></p>
+</section>
+
+<% @comedians.each do |comedian| %>
+<section id="comedian-<%= comedian.id %>" class="comedians">
+  <p> <%= image_tag ("#{comedian.image}"), size: "300x500" %></p>
+  <p> Comedian: <%= link_to comedian.name.titleize, comedian_path(comedian) %> </p>
+  <% if comedian.deceased? %>
+    <p>Age: <%= comedian.age %> (deceased)</p>
+  <% else %>
+    <p> Age: <%= comedian.age %> </p>
+  <% end %>
+  <p> City: <%= comedian.city %> </p>
+
+    <section id="specials">
+      <h2>Specials:</h2>
+      <% comedian.specials.each do |special| %>
+      <p>Name: <%= special.name %></p>
+      <p>Length: <%= special.length %></p>
+      <img src="<%= special.image %>" alt="special image">
+      <% end %>
+    </section>
+</section>
+<% end %>

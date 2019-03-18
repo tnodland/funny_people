@@ -9,6 +9,24 @@
   </head>
 
   <body>
+    <section id="nav-bar">
+      <% if @comedians.nil? && @comedian.nil? %>
+        <p id="links"><%= link_to "Go to Comedians", comedians_path %></p>
+        <p id="links"><%= link_to "Create a new Comedian", new_comedian_path %></p>
+      <% else %>
+        <% if !@comedians.nil? %>
+          <p id="links"><%= link_to "Create a new Comedian", new_comedian_path %></p>
+        <% else %>
+          <p id="links"><%= link_to "Return to Comedians", comedians_path %></p>
+        <% end %>
+      <% end %>
+
+      <% if @comedian %>
+        <% unless @comedian.id.nil? %>
+          <p id="links"><%= link_to "Create a new Comedian", new_comedian_path %></p>
+        <% end %>
+      <% end %>
+    </section>
     <%= yield %>
   </body>
 </html>
